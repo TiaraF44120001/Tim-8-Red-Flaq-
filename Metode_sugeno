@@ -1,0 +1,56 @@
+[System]
+Name='jst_sugeno_revisi'
+Type='sugeno'
+Version=2.0
+NumInputs=3
+NumOutputs=1
+NumRules=9
+AndMethod='min'
+OrMethod='probor'
+ImpMethod='prod'
+AggMethod='sum'
+DefuzzMethod='wtaver'
+
+[Input1]
+Name='Curah_Hujan'
+Range=[0 100]	
+NumMFs=3
+MF1='Gerimis':'trimf',[0 25 50]
+MF2='Sedang':'trimf',[25 50 75]
+MF3='Deras':'trimf',[7 90 100]
+
+[Input2]
+Name='Lama_Hujan'
+Range=[0 100]
+NumMFs=3
+MF1='Sebentar':'trimf',[0 25 50]
+MF2='Sedang':'trimf',[25 50 75]
+MF3='Lama':'trimf',[7 90 100]
+
+[Input3]
+Name='Debit_sungai'
+Range=[0 100]
+NumMFs=3
+MF1='Rendah':'trimf',[0 25 50]
+MF2='sedang':'trimf',[25 50 75]
+MF3='Tinggi':'trimf',[7 90 100]
+
+[Output1]
+Name='Kemungkinan Banjir'
+Range=[0 100]
+NumMFs=3
+MF1='Siaga_1':'constant',[1]
+MF2='Siaga_2':'constant',[0]
+MF3='Siaga_3':'constant',[1]
+
+
+[Rules]
+111 ,3  (1) : 1
+211 ,3 (1) : 1
+311 ,3 (1) : 1
+122 ,2 (1) : 1
+222 ,2 (1) : 1
+322 ,2 (1) : 1
+133 ,1 (1) : 1
+233 ,1 (1) : 1
+333 ,1 (1) : 1
